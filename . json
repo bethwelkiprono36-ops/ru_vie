@@ -1,0 +1,91 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "fastapi"
+    },
+    "space": {
+      "root": "aether-arena/space",
+      "runtime": "python"
+    },
+    "dashboard": {
+      "root": "dashboard",
+      "framework": "vite"
+    },
+    "python": {
+      "root": "python",
+      "runtime": "python"
+    },
+    "ruview-meta": {
+      "root": "python/ruview-meta",
+      "runtime": "python"
+    },
+    "tombstone": {
+      "root": "python/tombstone",
+      "runtime": "python"
+    },
+    "cog-ha-matter": {
+      "root": "v2/crates/cog-ha-matter",
+      "runtime": "rust"
+    },
+    "cog-person-count": {
+      "root": "v2/crates/cog-person-count",
+      "runtime": "rust"
+    },
+    "cog-pose-estimation": {
+      "root": "v2/crates/cog-pose-estimation",
+      "runtime": "rust"
+    },
+    "homecore-migrate": {
+      "root": "v2/crates/homecore-migrate",
+      "runtime": "rust"
+    },
+    "homecore-server": {
+      "root": "v2/crates/homecore-server",
+      "runtime": "rust"
+    },
+    "nvsim-server": {
+      "root": "v2/crates/nvsim-server",
+      "runtime": "rust"
+    },
+    "ruforecast-autogenous-bridge": {
+      "root": "v2/crates/ruforecast-autogenous-bridge",
+      "runtime": "rust"
+    },
+    "wifi-densepose-cli": {
+      "root": "v2/crates/wifi-densepose-cli",
+      "runtime": "rust"
+    },
+    "wifi-densepose-desktop": {
+      "root": "v2/crates/wifi-densepose-desktop",
+      "runtime": "rust"
+    },
+    "wifi-densepose-mtk-bridge": {
+      "root": "v2/crates/wifi-densepose-mtk-bridge",
+      "runtime": "rust"
+    },
+    "wifi-densepose-pointcloud": {
+      "root": "v2/crates/wifi-densepose-pointcloud",
+      "runtime": "rust"
+    },
+    "wifi-densepose-sensing-server": {
+      "root": "v2/crates/wifi-densepose-sensing-server",
+      "runtime": "rust"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/dashboard/(.*)",
+      "destination": {
+        "service": "dashboard"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
+    }
+  ]
+}
